@@ -1,0 +1,32 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build",
+            "group":{
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher":"$gcc",
+            "command": "g++",
+            "args": [
+                "-g", "main.cpp",
+                "-g", "doonce.cpp",
+                "-o", "${workspaceRoot}/Builds/${workspaceFolderBasename}.exe",
+                "-static",
+                "-static-libgcc",
+                "-static-libstdc++",
+                "-IC:/CODE/DEPS/bass24/c",
+                "-IC:/CODE/DEPS/audioout-0.0.0/include",
+                "-LC:/CODE/DEPS/audioout-0.0.0/lib",
+                "-LC:/CODE/DEPS/bass24/c/x64",
+                "-LC:/CODE/DEPS/bassfx24/C/x64",
+                "-laudio",
+                "-lbass",
+                "-lbass_fx"
+            ]
+        }
+    ]
+}
